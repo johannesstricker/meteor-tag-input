@@ -35,6 +35,7 @@ Template.form.helpers({
 	}
 });
 ```
+
 ```
 <template name="form">
 	<form>
