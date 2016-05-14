@@ -12,17 +12,17 @@ meteor add stricker:tag-input
 
 ## Basic Usage
 Simply insert the tagInput template to use it with default settings.
-```
+```javascript
 {{> tagInput}}
 ```
 The inserted tags can be obtained from the value field of the hidden input.
-```
+```javascript
 let value = $('#tag-input').val();  // ['TAG1', 'TAG2', ..]
 ```
 
 ## Settings
 You can specify settings by passing an object to the template's data context.
-```
+```javascript
 Template.form.helpers({
 	settings: function() {
 		return {
@@ -36,7 +36,7 @@ Template.form.helpers({
 });
 ```
 
-```
+```html
 <template name="form">
 	<form>
 		{{> tagInput settings}}
