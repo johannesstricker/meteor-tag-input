@@ -4,26 +4,25 @@
 			<!-- show invisible tag to calculate height -->
 			<div class="js-click-tag str-tags-each invisible">
 				{{> UI.dynamic template=settings.tagTemplate data="A"}}
-			</div>			
+			</div>
 
-			<!-- display current tags -->		
+			<!-- display current tags -->
 			{{#each tags}}
 				<div class="js-click-tag str-tags-each" data-index="{{@index}}">
 					{{> UI.dynamic template=settings.tagTemplate}}
 				</div>
-			{{/each}}				
-
+			{{/each}}
 			<!-- contains user input -->
 			<input type="text" class="js-focus-input js-keydown-input js-change-input" placeholder="{{placeholder}}">
 
 			<!-- contains current value as "value1, value2, ..." -->
-			<input type="hidden" id="{{settings.id}}" name="{{settings.name}}" value="{{value}}">		
+			<input type="hidden" id="{{settings.id}}" name="{{settings.name}}" value="{{value}}">
 		</div>
 	</div>
 </template>
 
 <template name="defaultTag">
 	<div class="str-tag">
-		{{this}} &times; 				
-	</div>	
+		{{this}} &times;
+	</div>
 </template>
