@@ -80,7 +80,7 @@ Tinytest.addAsync('Strict mode works properly.', (test, done) => {
     template.addTag('one');
     test.equal(template.tags.get().length, 1);
     done();
-  }, 2000);
+  }, 500);
 });
 
 Tinytest.addAsync('Allow duplicates works properly.', (test, done) => {
@@ -94,5 +94,24 @@ Tinytest.addAsync('Allow duplicates works properly.', (test, done) => {
     template.addTag('TAG1');
     test.equal(template.tags.get().length, 1);
     done();
+  }, 500);
+});
+
+Tinytest.addAsync('Suggestions work properly', (test, done) => {
+  const view = UI.renderWithData(Template.tagInput, {
+    allowDuplicates: false,
+    suggestions: ['one', 'two', 'three', 'four'],
+    strict: true,
+  }, document.body);
+
+  Meteor.setTimeout(() => {
+    const template = view._domrange.members[0].view.templateInstance();
+    let $input = $('input[type=text]');
+    $input.val('t');
+    $input.trigger('input');
+    Meteor.setTimeout(() => {
+      test.equal(template.getSuggestions().length, 2);
+      done();
+    }, 500);
   }, 500);
 });
