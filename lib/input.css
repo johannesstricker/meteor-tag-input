@@ -2,18 +2,22 @@
     box-sizing: border-box;
 }
 .str-tag-input {
+    position: relative;
     display: inline-block;
     width: 100%;
     max-width: 100%;
     height: auto;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
     border: 1px solid #EEEEEE;
     background-color: #fff;
     white-space: nowrap;
 }
 .str-tag-input > div {
+    overflow: hidden;
+}
+.str-tag-input > div > div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -69,4 +73,24 @@
 .str-tag-input .str-tag:focus, .str-tag-input .str-tag:hover {
     color: #E0E0E0;
     background-color: #6D6D6D;
+}
+.typeahead {
+    position: absolute;
+    border: 1px solid #E0E0E0;
+    top: 100%;
+    left: 0;
+    max-width: 100%;
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: #FFFFFF;
+}
+.typeahead > li {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.typeahead > li:hover {
+    background-color: #E0E0E0;
 }
